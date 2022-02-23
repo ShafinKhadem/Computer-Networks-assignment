@@ -1,0 +1,12 @@
+LAMBDA, DROP_RATE,  HOP_COUNT
+0.01,   0.00,       2.0
+0.05,   0.42,       2.0
+0.10,   0.61,       1.0
+0.25,   0.61,       2.0
+0.50,   0.83,       1.0
+0.80,   0.69,       2.0
+
+Drop rate became 0.75 when using LAMBDA=0.10 and using simpleDVR() instead of DVR().
+The reason behind this increased drop rate is: without using split horizon and forced update,
+the information of a router being down is not propagated. Hence, multiple packets can be sent
+to a down router without knowing that router is down.
